@@ -1,0 +1,105 @@
+# header information:
+Hinverter|9.07
+
+# Views:
+Vicon|ic
+Vlayout|lay
+Vschematic|sch
+
+# Technologies:
+Tmocmos|ScaleFORmocmos()D300.0|mocmosNumberOfMetalLayers()I3
+
+# Cell inv;1{ic}
+Cinv;1{ic}||artwork|1732386164659|1732387522424|E
+Ngeneric:Facet-Center|art@0||0|0||||AV
+NTriangle|art@2||0|1|6|6|RRR|
+NCircle|art@3||3.5|1|1|1||
+Nschematic:Bus_Pin|pin@0||-5|1||||
+Nschematic:Wire_Pin|pin@1||-3|1||||
+Nschematic:Bus_Pin|pin@2||6.5|1||||
+Nschematic:Wire_Pin|pin@3||4|1||||
+Aschematic:wire|net@0|||0|pin@1||-3|1|pin@0||-5|1
+Aschematic:wire|net@1|||1800|pin@3||4|1|pin@2||6.5|1
+Ein||D5G2;|pin@0||U
+Eout||D5G2;|pin@2||U
+X
+
+# Cell inv;1{sch}
+Cinv;1{sch}||schematic|1731346078973|1732386164659|
+Ngeneric:Facet-Center|art@0||0|0||||AV
+NOff-Page|conn@0||-21.5|2||||
+NOff-Page|conn@1||-1.5|2||||
+NGround|gnd@0||-8|-7||||
+Iinv;1{ic}|inv@0||5|18|||D5G4;
+NTransistor|nmos@0||-10.5|-1.5|||R||ATTR_length(D5G0.5;X-0.5;Y-1;)D2.0|ATTR_width(D5G1;X0.5;Y-1;)D10.0|SIM_spice_model(D5G1;X-2.5;Y0.5;)SNMOS
+Ngeneric:Invisible-Pin|pin@5||-24|-9|||||SIM_spice_card(D5G1;)S[vdd vdd 0 DC 5 ,vin in 0 DC pwl 10ns 0 20ns 5 50ns 5 60ns 0 ,cload out 0 250fF,.measure tran tf trig v(out) val=4.5 fall=1 td=8ns targ v(out) val=0.5 fall=1,.measure tran tr trig v(out) val=0.5 rise=1 td=50ns targ v(out) val=4.5 rise=1,.tran 0 0.1us,".include d:\\Users\\divya\\Downloads\\electric-9.07.jar"]
+NWire_Pin|pin@14||-8.5|-5||||
+NWire_Pin|pin@16||-8.5|2||||
+NWire_Pin|pin@17||-14|5||||
+NWire_Pin|pin@19||-14|-1.5||||
+NWire_Pin|pin@20||-14|2||||
+NTransistor|pmos@0||-10.5|5|||R|2|ATTR_length(D5G0.5;X-1;Y-1;)D2.0|ATTR_width(D5G1;X0.5;Y-1;)D10.0|SIM_spice_model(D5G1;X2.5;Y0.5;)SPMOS
+NPower|pwr@0||-8.5|11||||
+Awire|net@36|||900|pwr@0||-8.5|11|pmos@0|d|-8.5|7
+Awire|net@38|||900|nmos@0|s|-8.5|-3.5|pin@14||-8.5|-5
+Awire|net@39|||0|gnd@0||-8|-5|pin@14||-8.5|-5
+Awire|net@44|||900|pmos@0|s|-8.5|3|pin@16||-8.5|2
+Awire|net@45|||900|pin@16||-8.5|2|nmos@0|d|-8.5|0.5
+Awire|net@46|||1800|pin@16||-8.5|2|conn@1|a|-3.5|2
+Awire|net@47|||0|pmos@0|g|-11.5|5|pin@17||-14|5
+Awire|net@52|||900|pin@17||-14|5|pin@20||-14|2
+Awire|net@53|||900|pin@20||-14|2|pin@19||-14|-1.5
+Awire|net@54|||1800|conn@0|y|-19.5|2|pin@20||-14|2
+Awire|net@55|||0|nmos@0|g|-11.5|-1.5|pin@19||-14|-1.5
+Ein||D5G2;|conn@0|a|U
+Eout||D5G2;|conn@1|a|U
+X
+
+# Cell inv_sim;1{sch}
+Cinv_sim;1{sch}||schematic|1732387842477|1732436468545|
+Ngeneric:Facet-Center|art@0||0|0||||AV
+Iinv;1{ic}|inv@0||-25|9|||D5G4;
+Ngeneric:Invisible-Pin|pin@0||-36|1|||||SIM_spice_card(D5G1;)S[vdd vdd 0 DC 5 ,vin in 0 DC pwl 10ns 0 20ns 5 50ns 5 60ns 0 ,cload out 0 250fF,.measure tran tf trig v(out) val=4.5 fall=1 td=8ns targ v(out) val=0.5 fall=1,.measure tran tr trig v(out) val=0.5 rise=1 td=50ns targ v(out) val=4.5 rise=1,.tran 0 0.1us,".include d:\\Users\\divya\\Downloads\\electric-9.07.jar"]
+NWire_Pin|pin@1||-35|10||||
+NWire_Pin|pin@2||-15.5|10||||
+Awire|in|D5G1;||0|inv@0|in|-30|10|pin@1||-35|10
+Awire|out|D5G1;||1800|inv@0|out|-18.5|10|pin@2||-15.5|10
+X
+
+# Cell inverter;1{lay}
+Cinverter;1{lay}||mocmos|1732380953913|1732443018944||DRC_last_good_drc_area_date()G1732382516856|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1732382516856
+Ngeneric:Facet-Center|art@0||0|0||||AV
+NMetal-1-P-Active-Con|contact@0||10|19||5||
+NMetal-1-P-Active-Con|contact@1||22|19||5||
+NMetal-1-N-Active-Con|contact@2||10|-6||5||
+NMetal-1-N-Active-Con|contact@3||22|-6||5||
+NMetal-1-Metal-2-Con|contact@4||-1|6||||
+NMetal-1-Polysilicon-1-Con|contact@6||-1|6||||
+NN-Transistor|nmos@0||16|-6|7||RRR||SIM_spice_model(D5G2;Y-1;)Snmos
+NPolysilicon-1-Pin|pin@0||16|6||||
+NPolysilicon-1-Pin|pin@1||4|6||||
+NMetal-1-Pin|pin@3||22|6||||
+NMetal-1-Pin|pin@4||37|6||||
+Ngeneric:Invisible-Pin|pin@5||-18.5|-12|||||SIM_spice_card(D5G1;)S[vdd vdd 0 DC 5 ,vin in 0 DC pwl 10ns 0 20ns 5 50ns 5 60ns 0 ,cload out 0 250fF,.measure tran tf trig v(out) val=4.5 fall=1 td=8ns targ v(out) val=0.5 fall=1,.measure tran tr trig v(out) val=0.5 rise=1 td=50ns targ v(out) val=4.5 rise=1,.tran 0 0.1us,".include d:\\Users\\divya\\Downloads\\electric-9.07.jar"]
+NP-Transistor|pmos@0||16|19|7||RRR||SIM_spice_model(D5G2;)Spmos
+NMetal-1-P-Well-Con|substr@0||16|-22|20|||
+NMetal-1-N-Well-Con|well@0||16|35|20|1||
+AP-Active|net@0|||S1800|contact@0||10|19|pmos@0|diff-bottom|12.25|19
+AP-Active|net@1|||S1800|pmos@0|diff-top|19.75|19|contact@1||22|19
+AN-Active|net@2|||S0|nmos@0|diff-bottom|12.25|-6|contact@2||10|-6
+AN-Active|net@3|||S1800|nmos@0|diff-top|19.75|-6|contact@3||22|-6
+AMetal-1|net@5||1|S2700|contact@0||10|19|well@0||10|35
+AMetal-1|net@6||1|S900|contact@2||10|-6|substr@0||10|-22
+APolysilicon-1|net@8|||S900|pmos@0|poly-right|16|12|pin@0||16|6
+APolysilicon-1|net@9|||S900|pin@0||16|6|nmos@0|poly-left|16|1
+APolysilicon-1|net@10|||S0|pin@0||16|6|pin@1||4|6
+APolysilicon-1|net@11|||S0|pin@1||4|6|contact@6||-1|6
+AMetal-1|net@12||-1|S|contact@4||-1|6|contact@6||-1|6
+AMetal-1|net@17||1|S900|contact@1||22|19|pin@3||22|6
+AMetal-1|net@18||1|S900|pin@3||22|6|contact@3||22|-6
+AMetal-1|net@19||1|S1800|pin@3||22|6|pin@4||37|6
+Egnd||D5G2;|substr@0||U
+Ein||D5G2;|contact@4||U
+Eout||D5G2;|pin@4||U
+Evdd||D5G2;|well@0||U
+X

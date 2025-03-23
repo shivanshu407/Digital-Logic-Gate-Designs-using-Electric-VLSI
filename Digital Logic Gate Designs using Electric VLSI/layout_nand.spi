@@ -1,0 +1,32 @@
+*** SPICE deck for cell nand{lay} from library Nand
+*** Created on Sat Nov 23, 2024 21:50:31
+*** Last revised on Sat Nov 23, 2024 22:21:40
+*** Written on Sat Nov 23, 2024 22:22:08 by Electric VLSI Design System, version 9.07
+*** Layout tech: mocmos, foundry MOSIS
+*** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
+*CMOS/BULK-NWELL (PRELIMINARY PARAMETERS)
+.OPTIONS NOMOD DEFL=3UM DEFW=3UM DEFAD=70P DEFAS=70P LIMPTS=1000
++ITL5=0 RELTOL=0.01 ABSTOL=500PA VNTOL=500UV LVLTIM=2
++LVLCOD=1
+.MODEL N NMOS LEVEL=1
++KP=60E-6 VTO=0.7 GAMMA=0.3 LAMBDA=0.05 PHI=0.6
++LD=0.4E-6 TOX=40E-9 CGSO=2.0E-10 CGDO=2.0E-10 CJ=.2MF/M^2
+.MODEL P PMOS LEVEL=1
++KP=20E-6 VTO=0.7 GAMMA=0.4 LAMBDA=0.05 PHI=0.6
++LD=0.6E-6 TOX=40E-9 CGSO=3.0E-10 CGDO=3.0E-10 CJ=.2MF/M^2
+.MODEL DIFFCAP D CJO=.2MF/M^2
+
+*** TOP LEVEL CELL: Nand:nand{lay}
+Mnmos@0 gnd A net@5 nmos@0_n-trans-well NMOS L=0.6U W=3U AS=2.7P AD=9.75P PS=4.8U PD=14.5U
+Mnmos@1 net@5 B net@6 nmos@1_n-trans-well NMOS L=0.6U W=3U AS=6.75P AD=2.7P PS=10.5U PD=4.8U
+Mpmos@0 vdd A gnd pmos@0_p-trans-well PMOS L=0.6U W=3U AS=9.75P AD=13.5P PS=14.5U PD=21U
+Mpmos@1 gnd B vdd pmos@1_p-trans-well PMOS L=0.6U W=3U AS=13.5P AD=9.75P PS=21U PD=14.5U
+
+* Spice Code nodes in cell cell 'Nand:nand{lay}'
+vdd vdd 0 DC 5
+va A 0 DC pwl 10n 0 20n 5 50n 5 60n 0 90n 0 100n 5 130n 5.140 0 170n 0 180n 5
+vb B 0 DC pw/ 10n 0 20n 5 100 5 110n 0
+measure tran tf trig (AB) val=4.5 fall=1 td=4ns targ v(AB) val=0.5 fall=1 measure tran tr trig (AB) val=0.5 rise=1 td=4ns targ (AB) val=4.5 rise=1
+tran 200n
+include C: electriciC5_models.txt
+.END
